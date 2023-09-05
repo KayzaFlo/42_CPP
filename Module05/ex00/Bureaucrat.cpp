@@ -6,7 +6,7 @@
 /*   By: fgeslin <fgeslin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 12:33:29 by fgeslin           #+#    #+#             */
-/*   Updated: 2023/08/29 14:53:13 by fgeslin          ###   ########.fr       */
+/*   Updated: 2023/09/05 12:19:31 by fgeslin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,12 @@ Bureaucrat::Bureaucrat( void ) : _name("default"), _grade(150) {
 	std::cout << "Bureaucrat default constructor called\n";
 }
 
-Bureaucrat::Bureaucrat( std::string n, int g ) : _name(n), _grade(g) {
-	std::cout << "Bureaucrat constructor called\n";
+Bureaucrat::Bureaucrat( string n, int g ) : _name(n), _grade(g) {
 	if (this->_grade < 1)
 		throw Bureaucrat::GradeTooHighException();
 	if (this->_grade > 150)
 		throw Bureaucrat::GradeTooLowException();
+	std::cout << "Bureaucrat typed constructor called\n";
 }
 
 Bureaucrat::Bureaucrat( Bureaucrat const & src ) {
@@ -41,7 +41,7 @@ Bureaucrat &	Bureaucrat::operator=( Bureaucrat const & rhs ) {
 }
 
 // GETTERS
-std::string	Bureaucrat::getName() const { return _name; }
+string		Bureaucrat::getName() const { return _name; }
 int			Bureaucrat::getGrade() const { return _grade; }
 
 // FUNCS
@@ -59,11 +59,11 @@ void		Bureaucrat::decreaseGrade() {
 
 // EXCEPTIONS
 const char* Bureaucrat::GradeTooHighException::what() const throw() {
-	return ("Grade Too High!");
+	return ("\e[31mGrade Too High!\e[0m");
 }
 
 const char* Bureaucrat::GradeTooLowException::what() const throw() {
-	return ("Grade Too Low!");
+	return ("\e[31mGrade Too Low!\e[0m");
 }
 
 // OPERATOR OVERLOAD

@@ -6,7 +6,7 @@
 /*   By: fgeslin <fgeslin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 12:33:33 by fgeslin           #+#    #+#             */
-/*   Updated: 2023/08/29 14:59:46 by fgeslin          ###   ########.fr       */
+/*   Updated: 2023/09/05 12:27:33 by fgeslin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,37 +14,71 @@
 
 int main()
 {
+	cout << C_CYA << "Init w/ grade 150 then decrease grade" << C_WHT << endl;
 	try {
-		// Grade too low
-		Bureaucrat Gille("Gille", 150);
-		Gille.decreaseGrade();
+		Bureaucrat Low("Low", 150);
+		Low.decreaseGrade();
+		cout << Low;
 	}
-	catch(const std::exception& e) {
-		std::cerr << e.what() << '\n';
+	catch(const exception& e) {
+		cerr << e.what() << '\n';
 	}
-	try {
-		// Grade too high
-		std::string name = "Gille2";
-		Bureaucrat Gille2(name, 500);
-		Gille2.increaseGrade();
-	}
-	catch(const std::exception& e) {
-		std::cerr << e.what() << '\n';
-	}
+	cout << C_CYA << "----------" << C_WHT << endl << endl;
 
-	// Constructor
-	// Default
-	std::cout << std::endl;
-	Bureaucrat Default;
-	std::cout << Default << std::endl;
-	Bureaucrat Guy("Guy", 38);
-	std::cout << Guy << std::endl << std::endl;
-	// Copy
-	Bureaucrat Gille(Guy);
-	std::cout << Gille << std::endl << std::endl;
-	// Assigment
-	Bureaucrat Pas_Guy("Pas_Guy", 46);
-	std::cout << Pas_Guy << std::endl;
-	Pas_Guy = Guy;
-	std::cout << Pas_Guy << std::endl;
+	// ## ------------------------------ ##
+
+	cout << C_CYA << "Init w/ grade 500 then increase grade" << C_WHT << endl;
+	Bureaucrat *WayTooLow;
+	try {
+		WayTooLow = new Bureaucrat("WayTooLow", 500);
+		WayTooLow->increaseGrade();
+	}
+	catch(const exception& e) {
+		cerr << e.what() << '\n';
+	}
+	cout << C_CYA << "----------" << C_WHT << endl << endl;
+
+	// ## ------------------------------ ##
+
+	cout << C_CYA << "Init w/ grade 1 then increase grade" << C_WHT << endl;
+	{
+		try {
+			Bureaucrat High("High", 1);
+			High.increaseGrade();
+		}
+		catch(const exception& e) {
+			cerr << e.what() << '\n';
+		}
+	}
+	cout << C_CYA << "----------" << C_WHT << endl << endl;
+
+	// ## ------------------------------ ##
+
+	cout << C_CYA << "Init default then increase grade" << C_WHT << endl;
+	{
+		Bureaucrat *Default;
+		try {
+			Default = new Bureaucrat();
+			Default->increaseGrade();
+		}
+		catch(const exception& e) {
+			cerr << e.what() << '\n';
+		}
+		cout << *Default;
+		delete(Default);
+	}
+	cout << C_CYA << "----------" << C_WHT << endl << endl;
+
+	// ## ------------------------------ ##
+
+	cout << C_CYA << "Init w/ grade 42 then decrease grade" << C_WHT << endl;
+	try {
+		Bureaucrat Student("Student", 42);
+		Student.decreaseGrade();
+		cout << Student;
+	}
+	catch(const exception& e) {
+		cerr << e.what() << '\n';
+	}
+	cout << C_CYA << "----------" << C_WHT << endl << endl;
 }
