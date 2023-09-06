@@ -6,7 +6,7 @@
 /*   By: fgeslin <fgeslin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 12:33:29 by fgeslin           #+#    #+#             */
-/*   Updated: 2023/09/06 11:59:38 by fgeslin          ###   ########.fr       */
+/*   Updated: 2023/09/06 12:00:13 by fgeslin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,14 +52,26 @@ void		Bureaucrat::decreaseGrade() {
 		throw Bureaucrat::GradeTooLowException();
 }
 
+void		Bureaucrat::signForm( Form &f ) {
+	if (f.getIsSigned()) {
+		cout << "\'" << _name << "\' couldn't sign \'" << f.getName() << "\' because the Form is already signed.\n";
+		return;
+	}
+	if (_grade > f.getGradeToSign()) {
+		cout << "\'" << _name << "\' couldn't sign \'" << f.getName() << "\' because the Bureaucrat doesn't have the required grade.\n";
+		return;
+	}
+	cout << _name << " successfully signed " << f.getName() << "!\n";
+}
+
 // EXCEPTIONS
 
 const char* Bureaucrat::GradeTooHighException::what() const throw() {
-	return ("\e[31mGrade Too High!\e[0m");
+	return ("\e[31mBureaucrat: Grade Too High!\e[0m");
 }
 
 const char* Bureaucrat::GradeTooLowException::what() const throw() {
-	return ("\e[31mGrade Too Low!\e[0m");
+	return ("\e[31mBureaucrat: Grade Too Low!\e[0m");
 }
 
 // OPERATOR OVERLOAD
