@@ -6,7 +6,7 @@
 /*   By: fgeslin <fgeslin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 12:33:33 by fgeslin           #+#    #+#             */
-/*   Updated: 2023/09/13 11:58:16 by fgeslin          ###   ########.fr       */
+/*   Updated: 2023/09/18 11:21:27 by fgeslin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,20 +24,19 @@ int main()
 	Intern	Ducky;
 	
 	AForm	*ErrorForm = Ducky.makeForm("error", "target");
+	(void)ErrorForm;
 	AForm	*PrezForm = Ducky.makeForm("presidential pardon", "President");
 	AForm	*RobotForm = Ducky.makeForm("robotomy request", "Intern");
 	AForm	*ShrubForm = Ducky.makeForm("shrubbery creation", "Garden");
-	(void)PrezForm;
-	(void)RobotForm;
-	(void)ShrubForm;
-	(void)ErrorForm;
 
+	cout << endl;
+	
 	Bureaucrat	AllMighty("AllMighty", 1);
 	Bureaucrat	Secretary("Secretary", 42);
 	Bureaucrat	Worker("Worker", 87);
 	Bureaucrat	Guest("Guest", 150);
 
-	cout << endl;
+	cout << C_CYA << "----------" << C_WHT << endl << endl;
 	
 	cout << C_CYA << "Try to sign Prez Form with Worker" << C_WHT << endl;
 	try {

@@ -6,7 +6,7 @@
 /*   By: fgeslin <fgeslin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/08 16:20:49 by fgeslin           #+#    #+#             */
-/*   Updated: 2023/09/13 11:22:28 by fgeslin          ###   ########.fr       */
+/*   Updated: 2023/09/18 11:18:33 by fgeslin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,11 @@ public:
 	~Intern( void );
 
 	Intern &	operator=( Intern const & rhs );
-
-	AForm *		makeForm(string name, string target);
+	
+	AForm *		makePrezForm(string target) const;
+	AForm *		makeRobotForm(string target) const;
+	AForm *		makeShrubForm(string target) const;
+	AForm *		makeForm(string name, string target) const;
 
 };
 
