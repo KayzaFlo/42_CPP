@@ -6,19 +6,18 @@
 #    By: fgeslin <fgeslin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/31 13:26:56 by fgeslin           #+#    #+#              #
-#    Updated: 2023/08/29 14:52:28 by fgeslin          ###   ########.fr        #
+#    Updated: 2023/09/19 13:07:13 by fgeslin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 #####	CONFIG		############################################################
-NAME		:= Bureaucrat
+NAME		:= type
 CC			:= c++
 RM			:= rm -f
 CFLAGS		= -Wall -Wextra -Werror -std=c++98
 
 #####	SOURCES		############################################################
-SRC			=	main.cpp \
-				Bureaucrat.cpp
+SRC			=	main.cpp
 OBJ			=	$(SRC:.cpp=.o)
 
 #####	Makefile  objs		###################################################
