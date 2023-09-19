@@ -6,7 +6,7 @@
 /*   By: fgeslin <fgeslin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 13:24:20 by fgeslin           #+#    #+#             */
-/*   Updated: 2023/09/18 17:16:49 by fgeslin          ###   ########.fr       */
+/*   Updated: 2023/09/19 11:11:37 by fgeslin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,12 +39,12 @@ using std::endl;
 class Converter
 {
 private:
-	const string	_src;
+	const string	_val;
 
 public:
 	Converter( void );
-	Converter( string src );
-	Converter( Converter const & src );
+	Converter( string val );
+	Converter( Converter const & val );
 	~Converter( void );
 
 	Converter &	operator=( Converter const & rhs );
@@ -53,8 +53,6 @@ public:
 	operator int();
 	operator float();
 	operator double();
-
-	string getSrc(void) { return _src; };
 
 	class NonDisplayableException : public std::exception {
 		public:
@@ -79,6 +77,6 @@ public:
 
 };
 
-std::ostream &	operator<<( std::ostream & o, Converter const & rhs );
+std::ostream &	operator<<( std::ostream & o, Converter & rhs );
 
 #endif // CONVERTER_HPP_
