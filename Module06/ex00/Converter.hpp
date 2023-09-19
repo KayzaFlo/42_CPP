@@ -6,7 +6,7 @@
 /*   By: fgeslin <fgeslin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 13:24:20 by fgeslin           #+#    #+#             */
-/*   Updated: 2023/09/19 11:11:37 by fgeslin          ###   ########.fr       */
+/*   Updated: 2023/09/19 12:38:17 by fgeslin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@
 
 # include <iostream>
 # include <iomanip>
-# include <string>
 # include <cmath>
 using std::exception;
 using std::string;

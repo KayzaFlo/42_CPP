@@ -6,7 +6,7 @@
 /*   By: fgeslin <fgeslin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 15:00:25 by fgeslin           #+#    #+#             */
-/*   Updated: 2023/07/19 15:24:52 by fgeslin          ###   ########.fr       */
+/*   Updated: 2023/09/19 12:14:49 by fgeslin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,19 +57,10 @@ void Harl::complain(std::string level) const {
 	{
 	case 0:
 		this->_debug();
-		this->_info();
-		this->_warning();
-		this->_error();
-		break;
 	case 1:
 		this->_info();
-		this->_warning();
-		this->_error();
-		break;
 	case 2:
 		this->_warning();
-		this->_error();
-		break;
 	case 3:
 		this->_error();
 		break;
