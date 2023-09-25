@@ -6,7 +6,7 @@
 /*   By: fgeslin <fgeslin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 12:33:29 by fgeslin           #+#    #+#             */
-/*   Updated: 2023/09/06 11:59:38 by fgeslin          ###   ########.fr       */
+/*   Updated: 2023/09/25 15:37:52 by fgeslin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,8 @@ Bureaucrat::~Bureaucrat( void ) {
 
 // GETTERS
 
-string		Bureaucrat::getName() const { return _name; }
-int			Bureaucrat::getGrade() const { return _grade; }
+const string &	Bureaucrat::getName() const { return _name; }
+const int &		Bureaucrat::getGrade() const { return _grade; }
 
 // FUNCS
 

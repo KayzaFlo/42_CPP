@@ -6,7 +6,7 @@
 /*   By: fgeslin <fgeslin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 12:33:33 by fgeslin           #+#    #+#             */
-/*   Updated: 2023/09/18 11:21:27 by fgeslin          ###   ########.fr       */
+/*   Updated: 2023/09/25 14:38:19 by fgeslin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,19 +17,35 @@
 #include "RobotomyRequestForm.hpp"
 #include "ShrubberyCreationForm.hpp"
 
-void	BureaucratTests();
+void	FormTests(AForm *PrezForm, AForm *RobotForm, AForm *ShrubForm);
 
 int main()
 {
 	Intern	Ducky;
 	
-	AForm	*ErrorForm = Ducky.makeForm("error", "target");
-	(void)ErrorForm;
-	AForm	*PrezForm = Ducky.makeForm("presidential pardon", "President");
-	AForm	*RobotForm = Ducky.makeForm("robotomy request", "Intern");
-	AForm	*ShrubForm = Ducky.makeForm("shrubbery creation", "Garden");
+	AForm	*ErrorForm;	
+	try { ErrorForm = Ducky.makeForm("error", "target"); }
+	catch(const exception& e) { cerr << e.what() << '\n'; }
+	
+	AForm	*PrezForm;
+	AForm	*RobotForm;
+	AForm	*ShrubForm;
 
-	cout << endl;
+	try {
+		PrezForm = Ducky.makeForm("presidential pardon", "President");
+		RobotForm = Ducky.makeForm("robotomy request", "Intern");
+		ShrubForm = Ducky.makeForm("shrubbery creation", "Garden");
+		FormTests(PrezForm, RobotForm, ShrubForm);
+	}
+	catch(const exception& e) { cerr << e.what() << '\n'; }
+
+	delete(PrezForm);
+	delete(RobotForm);
+	delete(ShrubForm);
+}
+
+void	FormTests(AForm *PrezForm, AForm *RobotForm, AForm *ShrubForm) {
+		cout << endl;
 	
 	Bureaucrat	AllMighty("AllMighty", 1);
 	Bureaucrat	Secretary("Secretary", 42);
@@ -88,8 +104,4 @@ int main()
 	cout << C_CYA << "----------" << C_WHT << endl << endl;
 	
 	// ## ------------------------------ ##
-
-	delete(PrezForm);
-	delete(RobotForm);
-	delete(ShrubForm);
 }

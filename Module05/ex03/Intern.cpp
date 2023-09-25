@@ -6,7 +6,7 @@
 /*   By: fgeslin <fgeslin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/08 16:20:51 by fgeslin           #+#    #+#             */
-/*   Updated: 2023/09/18 11:31:30 by fgeslin          ###   ########.fr       */
+/*   Updated: 2023/09/25 14:33:28 by fgeslin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,5 +44,5 @@ AForm *	Intern::makeForm(string name, string target) const {
 		}
 	}
 	cout << "• Intern couldn't create " << C_YEL << "\'" << name << "\'" << C_WHT << " form...\n";
-	return NULL;
+	throw std::out_of_range("\e[31mAForm: Form not found!\e[0m");
 }
