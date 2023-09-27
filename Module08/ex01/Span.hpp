@@ -6,7 +6,7 @@
 /*   By: fgeslin <fgeslin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 14:46:19 by fgeslin           #+#    #+#             */
-/*   Updated: 2023/09/27 16:11:47 by fgeslin          ###   ########.fr       */
+/*   Updated: 2023/09/27 16:30:51 by fgeslin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,8 @@ public:
 
 	Span &	operator=( Span const & rhs );
 
-	void	addNumber( int n );
+	void	addNumber( int );
+	void	addNumber( std::vector<int>::const_iterator, std::vector<int>::const_iterator );
 	size_t	shortestSpan( void ) const;
 	size_t	longestSpan( void ) const;
 

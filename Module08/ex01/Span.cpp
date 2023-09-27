@@ -6,7 +6,7 @@
 /*   By: fgeslin <fgeslin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 14:46:15 by fgeslin           #+#    #+#             */
-/*   Updated: 2023/09/27 16:11:40 by fgeslin          ###   ########.fr       */
+/*   Updated: 2023/09/27 16:40:09 by fgeslin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,18 @@ void	Span::addNumber( int n ) {
 	if (_vec.size() < _maxSize)
 		_vec.push_back(n);
 	else
-		throw std::out_of_range("Span full!");
+		throw std::out_of_range("\e[31mSpan: addNumber: _vec is full\e[0m");
+}
+
+void Span::addNumber( std::vector<int>::const_iterator itBegin, std::vector<int>::const_iterator itEnd ) {
+    if ( _vec.size() > _maxSize )
+        throw std::out_of_range("\e[31mSpan: addNumber: _vec is full\e[0m");
+    _vec.insert( _vec.end(), itBegin, itEnd );
 }
 
 size_t	Span::shortestSpan( void ) const {
 	if (_vec.size() < 2)
-		throw exception();
+		throw std::length_error("\e[31mSpan: longestSpan: not enough values in _vec\e[0m");
 		
 	std::vector<int> tmp;
 	for (size_t i = 0; i < _vec.size(); i++) 
@@ -53,7 +59,7 @@ size_t	Span::shortestSpan( void ) const {
 
 size_t	Span::longestSpan( void ) const {
 	if (_vec.size() < 2)
-		throw exception();
+		throw std::length_error("\e[31mSpan: longestSpan: not enough values in _vec\e[0m");
 		
 	int	min = *std::min_element(_vec.begin(), _vec.end());
 	int	max = *std::max_element(_vec.begin(), _vec.end());
