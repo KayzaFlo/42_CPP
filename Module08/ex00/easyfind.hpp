@@ -6,7 +6,7 @@
 /*   By: fgeslin <fgeslin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 10:43:03 by fgeslin           #+#    #+#             */
-/*   Updated: 2023/09/25 10:56:17 by fgeslin          ###   ########.fr       */
+/*   Updated: 2023/09/27 14:45:07 by fgeslin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,6 @@
 # define C_GRY "\e[90m"
 
 # include <iostream>
-# include <iomanip>
-# include <cmath>
 # include <algorithm>
 using std::exception;
 using std::string;
@@ -36,10 +34,17 @@ using std::cout;
 using std::cerr;
 using std::endl;
 
+void	printint(int i);
+
 template< typename T >
-T &	easyfind( T const & cont, int const & x ) {
-	std::for_each(cont, cont, NULL);
-	return NULL;
+int	easyfind( T const & cont, int const & val ) {
+	cout << C_GRY;
+	std::for_each(cont.begin(), cont.end(), printint);
+	cout << " ==> Looking for " << val << "\n" << C_WHT;
+
+	if ( std::find( cont.begin(), cont.end(), val ) != cont.end() )
+		return (0);
+	return (1);
 }
 
 #endif // EASYFIND_HPP_
