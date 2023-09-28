@@ -6,7 +6,7 @@
 /*   By: fgeslin <fgeslin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 12:13:25 by fgeslin           #+#    #+#             */
-/*   Updated: 2023/09/21 16:33:23 by fgeslin          ###   ########.fr       */
+/*   Updated: 2023/09/28 14:47:15 by fgeslin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ public:
 	}
 	T &		operator[]( size_t pos ) {
 		if ( pos < 0 || pos >= _size )
-			throw exception();
+			throw std::out_of_range("\e[31mArray: out of range!\e[0m");
 		return _tab[pos];	
 	}
 
