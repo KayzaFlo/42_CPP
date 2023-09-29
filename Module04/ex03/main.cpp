@@ -6,7 +6,7 @@
 /*   By: fgeslin <fgeslin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 17:53:12 by fgeslin           #+#    #+#             */
-/*   Updated: 2023/08/01 14:19:28 by fgeslin          ###   ########.fr       */
+/*   Updated: 2023/09/28 15:00:04 by fgeslin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,13 +62,13 @@ int main()
 	me->use(2, *me);
 	cout << "\n";
 	
-	Character bob("bob");
-	bob = *dynamic_cast<Character*>(me);
-	bob.equip(src->createMateria("ice"));
-	bob.display();
-	bob.use(0, *me);
-	bob.use(2, bob);
-	bob.use(1, *me);
+	ICharacter* bob = new Character("bob");
+	*static_cast<Character*>(bob) = *static_cast<Character*>(me);
+	bob->equip(src->createMateria("ice"));
+	bob->display();
+	bob->use(0, *me);
+	bob->use(2, *bob);
+	bob->use(1, *me);
 	cout << "\n";
 
 	delete me;

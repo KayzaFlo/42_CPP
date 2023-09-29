@@ -6,7 +6,7 @@
 /*   By: fgeslin <fgeslin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 16:42:49 by fgeslin           #+#    #+#             */
-/*   Updated: 2023/09/28 12:47:39 by fgeslin          ###   ########.fr       */
+/*   Updated: 2023/09/29 11:46:05 by fgeslin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,21 +36,26 @@ template< typename T >
 class MutantStack : public std::stack<T>
 {
 public:
-	struct iterator {
-		iterator(T* ptr) : m_ptr(ptr) {}
+	class iterator {
+		public:
+			iterator(T* ptr) : m_ptr(ptr) {}
+			iterator(iterator const & src) { *this = src; }
+			~iterator( void ) {}
+			iterator &	operator=( iterator const & rhs ) { m_ptr = rhs.m_ptr; return *this; }
 
-		T& operator*() const { return *m_ptr; }
-		T* operator->() { return m_ptr; }
+			T& operator*() const { return *m_ptr; }
+			T* operator->() { return m_ptr; }
 
-		iterator& operator++() { m_ptr++; return *this; }
-		iterator& operator--() { m_ptr--; return *this; }
-		iterator operator++(int) { iterator tmp = *this; ++(*this); return tmp; }
-		iterator operator--(int) { iterator tmp = *this; --(*this); return tmp; }
+			iterator& operator++() { m_ptr++; return *this; }
+			iterator& operator--() { m_ptr--; return *this; }
+			iterator operator++(int) { iterator tmp = *this; ++(*this); return tmp; }
+			iterator operator--(int) { iterator tmp = *this; --(*this); return tmp; }
 
-		bool operator== (const iterator& rhs) { return m_ptr == rhs.m_ptr; };
-		bool operator!= (const iterator& rhs) { return m_ptr != rhs.m_ptr; };
+			bool operator== (const iterator& rhs) { return m_ptr == rhs.m_ptr; };
+			bool operator!= (const iterator& rhs) { return m_ptr != rhs.m_ptr; };
 		
 		private:
+			iterator() : m_ptr(0) {}
 			T* m_ptr;
 	};
 	
