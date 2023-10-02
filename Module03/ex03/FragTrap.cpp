@@ -6,17 +6,21 @@
 /*   By: fgeslin <fgeslin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 15:15:48 by fgeslin           #+#    #+#             */
-/*   Updated: 2023/07/25 17:20:09 by fgeslin          ###   ########.fr       */
+/*   Updated: 2023/10/02 11:42:27 by fgeslin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
 
-FragTrap::FragTrap() : ClapTrap( "defaultFT", getBaseHealth(), getBaseEnergy(), getBaseAttack() ) {
+int	FragTrap::_baseHealth = 100;
+int	FragTrap::_baseEnergy = 100;
+int	FragTrap::_baseAttack = 30;
+
+FragTrap::FragTrap() : ClapTrap( "defaultFT", _baseHealth, _baseEnergy, _baseAttack ) {
 	cout << C_YEL << "  > FragTrap \'" << _name << "\' Default constructor called! <" << C_WHT << endl;
 }
 
-FragTrap::FragTrap( const string &name ) : ClapTrap( name, getBaseHealth(), getBaseEnergy(), getBaseAttack() ) {
+FragTrap::FragTrap( const string &name ) : ClapTrap( name, _baseHealth, _baseEnergy, _baseAttack ) {
 	cout << C_YEL << "  > FragTrap \'" << _name << "\' Named constructor called! <" << C_WHT << endl;
 }
 

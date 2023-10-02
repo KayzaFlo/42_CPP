@@ -6,17 +6,21 @@
 /*   By: fgeslin <fgeslin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 15:15:48 by fgeslin           #+#    #+#             */
-/*   Updated: 2023/07/25 17:31:20 by fgeslin          ###   ########.fr       */
+/*   Updated: 2023/10/02 11:42:33 by fgeslin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap() : _name("defaultCT"), _health(getBaseHealth()), _energy(getBaseEnergy()), _attack(getBaseAttack()) {
+int	ClapTrap::_baseHealth = 10;
+int	ClapTrap::_baseEnergy = 10;
+int	ClapTrap::_baseAttack = 10;
+
+ClapTrap::ClapTrap() : _name("defaultCT"), _health(_baseHealth), _energy(_baseEnergy), _attack(_baseAttack) {
 	cout << C_GRN << "> ClapTrap \'" << _name << "\' Default constructor called! <" << C_WHT << endl;
 }
 
-ClapTrap::ClapTrap( string name ) : _name(name), _health(getBaseHealth()), _energy(getBaseEnergy()), _attack(getBaseAttack()) {
+ClapTrap::ClapTrap( string name ) : _name(name), _health(_baseHealth), _energy(_baseEnergy), _attack(_baseAttack) {
 	cout << C_GRN << "> ClapTrap \'" << _name << "\' Named constructor called! <" << C_WHT << endl;
 }
 

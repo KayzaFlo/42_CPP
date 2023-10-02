@@ -6,7 +6,7 @@
 /*   By: fgeslin <fgeslin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 15:15:49 by fgeslin           #+#    #+#             */
-/*   Updated: 2023/07/26 11:52:47 by fgeslin          ###   ########.fr       */
+/*   Updated: 2023/10/02 11:39:32 by fgeslin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,10 @@ protected:
 	int		_health;
 	int		_energy;
 	int		_attack;
+
+	static int	_baseHealth;
+	static int	_baseEnergy;
+	static int	_baseAttack;
 
 public:
 	ClapTrap( void );

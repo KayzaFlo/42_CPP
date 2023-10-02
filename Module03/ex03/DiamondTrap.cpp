@@ -6,7 +6,7 @@
 /*   By: fgeslin <fgeslin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 15:15:48 by fgeslin           #+#    #+#             */
-/*   Updated: 2023/07/25 17:21:19 by fgeslin          ###   ########.fr       */
+/*   Updated: 2023/10/02 11:42:57 by fgeslin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ DiamondTrap::DiamondTrap( void ) : ClapTrap(), _name("defaultDT") {
 
 DiamondTrap::DiamondTrap( const string &name ) : ClapTrap( name + "_clap_trap" ), _name(name) {
 	cout << C_YEL << "  > DiamondTrap \'" << _name << "\' Named constructor called! <" << C_WHT << endl;
-	_health = FragTrap::getBaseHealth();
-	_energy = ScavTrap::getBaseEnergy();
-	_attack = FragTrap::getBaseAttack();
+	_health = FragTrap::_baseHealth;
+	_energy = ScavTrap::_baseEnergy;
+	_attack = FragTrap::_baseAttack;
 }
 
 DiamondTrap::DiamondTrap( const DiamondTrap &src) : ClapTrap( src ), ScavTrap( src ), FragTrap( src ) {
