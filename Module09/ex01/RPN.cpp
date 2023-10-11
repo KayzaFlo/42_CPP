@@ -6,7 +6,7 @@
 /*   By: fgeslin <fgeslin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 14:42:49 by fgeslin           #+#    #+#             */
-/*   Updated: 2023/10/09 15:43:40 by fgeslin          ###   ########.fr       */
+/*   Updated: 2023/10/09 15:50:38 by fgeslin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,10 @@ void	RPN::calculate( string formula ) {
 	for ( string elem; std::getline(ss, elem, ' '); ) {
 		if (elem.size() != 1)
 			throw std::logic_error("\e[31mError\e[0m");
+			
 		else if (std::isdigit(elem[0]))
 			_calculation_stack.push(static_cast<float>(elem[0] - '0'));
+
 		else if (elem[0] == '+' || elem[0] == '-' || elem[0] == '*' || elem[0] == '/') {
 			if (_calculation_stack.size() < 2)
 				throw std::logic_error("\e[31mError\e[0m");
