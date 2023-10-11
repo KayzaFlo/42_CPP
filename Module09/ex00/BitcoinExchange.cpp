@@ -6,11 +6,22 @@
 /*   By: fgeslin <fgeslin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 17:26:07 by fgeslin           #+#    #+#             */
-/*   Updated: 2023/10/09 14:27:05 by fgeslin          ###   ########.fr       */
+/*   Updated: 2023/10/11 15:29:29 by fgeslin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
+
+int ft_stoi( std::string s ) {
+    int i;
+    std::istringstream(s) >> i;
+    return i;
+}
+float ft_stof( std::string s ) {
+    float f;
+    std::istringstream(s) >> f;
+    return f;
+}
 
 BitcoinExchange::BitcoinExchange( void ) {}
 
@@ -45,8 +56,8 @@ void	BitcoinExchange::parseData() {
 			throw std::logic_error("\e[31mError: Data: bad time format.\e[0m");
 		}
 
-		int	rate = std::stof(line.substr(del + 1));
-		int	iDate = std::stoi(line.substr(0, 4) + line.substr(5, 2) + line.substr(8, 2));
+		float	rate = ft_stof(line.substr(del + 1));
+		int	iDate = ft_stoi(line.substr(0, 4) + line.substr(5, 2) + line.substr(8, 2));
 		_dataMap.insert(std::make_pair(iDate, rate));
 	}
 	dataFile.close();
@@ -68,13 +79,13 @@ void	BitcoinExchange::parseInput( string path ) {
 			if (!isDateValid(date))
 				throw std::logic_error("\e[31mError: bad time format => " + line + C_WHT);
 
-			float	count = std::stof(line.substr(del + 1));
+			float	count = ft_stof(line.substr(del + 1));
 			if (count < 0)
 				throw std::out_of_range("\e[31mError: not a positive number.\e[0m");
 			if (count > 1000)
 				throw std::out_of_range("\e[31mError: too large number.\e[0m");
 				
-			int		iDate = std::stoi(line.substr(0, 4) + line.substr(5, 2) + line.substr(8, 2));
+			int		iDate = ft_stoi(line.substr(0, 4) + line.substr(5, 2) + line.substr(8, 2));
 			float	price = findRate(iDate) * count;
 			cout << date << " => " << count << " = " << price << endl;
 		}
